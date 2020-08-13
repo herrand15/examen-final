@@ -5,22 +5,13 @@ import Home from "./components/home";
 import Login from "./components/login";
 import firebdb from "./firebase";
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
+function App() {
+    const user = null;
+    componentDidMount(() => {
+        authListener();
+    });
 
-        this.state = {
-            user: null,
-        };
-
-        this.authListener = this.authListener.bind(this);
-        //this.handleDeleteId = this.handleDeleteId.bind(this);
-    }
-    componentDidMount() {
-        this.authListener();
-    }
-
-    authListener() {
+    authListener(() => {
         firebdb.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({ user });
@@ -28,18 +19,17 @@ class App extends React.Component {
                 this.setState({ user: null });
             }
         });
-    }
-    render() {
-        return (
-            <div
-                className="col-12"
-                style={{ width: "100%", height: "100%", background: "white" }}
-            >
-                <Home />
-                {/* {this.state.user ? <Home /> : <Login />} */}
-            </div>
-        );
-    }
+    });
+
+    return (
+        <div
+            className="col-12"
+            style={{ width: "100%", height: "100%", background: "white" }}
+        >
+            <Home />
+            {/* {this.state.user ? <Home /> : <Login />} */}
+        </div>
+    );
 }
 
 export default App;
