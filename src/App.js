@@ -11,7 +11,7 @@ function App() {
             className="col-12"
             style={{ width: "100%", height: "100%", background: "white" }}
         >
-            <HomeApp />
+            <Home />
         </div>
     );
 }
