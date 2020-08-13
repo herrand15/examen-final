@@ -14,30 +14,41 @@ class Home extends React.Component {
         this.operation = this.operation.bind(this);
         this.editId = this.editId.bind(this);
         this.onDelete = this.onDelete.bind(this);
+        this.logOut = this.logOut.bind(this);
         //this.handleDeleteId = this.handleDeleteId.bind(this);
     }
 
     componentDidMount() {
-        firebdb.child("registers").on("value", (snapshot) => {
-            if (snapshot.val() != null) {
-                this.setState({ registers: snapshot.val() });
-            } else {
-                this.setState({ registers: {} });
-            }
-        });
+        firebdb
+            .database()
+            .ref()
+            .child("registers")
+            .on("value", (snapshot) => {
+                if (snapshot.val() != null) {
+                    this.setState({ registers: snapshot.val() });
+                } else {
+                    this.setState({ registers: {} });
+                }
+            });
     }
 
     operation = (obj) => {
         if (this.state.beingEdited == "") {
-            firebdb.child("registers").push(obj, (err) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    this.setState({ beingEdited: "" });
-                }
-            });
+            firebdb
+                .database()
+                .ref()
+                .child("registers")
+                .push(obj, (err) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        this.setState({ beingEdited: "" });
+                    }
+                });
         } else {
             firebdb
+                .database()
+                .ref()
                 .child(`registers/${this.state.beingEdited}`)
                 .set(obj, (err) => {
                     if (err) {
@@ -54,15 +65,23 @@ class Home extends React.Component {
         console.log("SE EDITO " + this.state.beingEdited);
     }
 
+    logOut() {
+        firebdb.auth().signOut();
+    }
+
     onDelete(id) {
         if (window.confirm("Esta seguro que desea ELIMINAR este registro?")) {
-            firebdb.child(`registers/${id}`).remove((err) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    this.setState({ beingEdited: "" });
-                }
-            });
+            firebdb
+                .database()
+                .ref()
+                .child(`registers/${id}`)
+                .remove((err) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        this.setState({ beingEdited: "" });
+                    }
+                });
         }
     }
 
@@ -97,6 +116,12 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <div className="col-md-8">
+                        <button
+                            className="btn btn-secondary"
+                            onClick={this.logOut}
+                        >
+                            Sign Out
+                        </button>
                         <table className="table table-borderless table-stripped">
                             <thead className="thead-light">
                                 <tr>
@@ -126,12 +151,17 @@ class Home extends React.Component {
                                                             .fieldTwo
                                                     }
                                                 </td>
-                                                <td>
-                                                    {
-                                                        this.state.registers[id]
-                                                            .fieldThree
-                                                    }
-                                                </td>
+                                                <a
+                                                    href={`mailto: ${this.state.registers[id].fieldThree}`}
+                                                >
+                                                    <td>
+                                                        {
+                                                            this.state
+                                                                .registers[id]
+                                                                .fieldThree
+                                                        }
+                                                    </td>
+                                                </a>
                                                 <td>
                                                     <button
                                                         type="button"

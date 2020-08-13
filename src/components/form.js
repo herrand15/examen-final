@@ -67,6 +67,7 @@ class Form extends React.Component {
             fieldOne: this.props.registers[this.props.beingEdited].fieldOne,
             fieldTwo: this.props.registers[this.props.beingEdited].fieldTwo,
             fieldThree: this.props.registers[this.props.beingEdited].fieldThree,
+            fieldFour: this.props.registers[this.props.beingEdited].fieldFour,
         });
     }
 
@@ -78,13 +79,17 @@ class Form extends React.Component {
         } else if (
             window.confirm("Esta seguro que desea ELIMINAR este registro?")
         ) {
-            firebdb.child(`registers/${id}`).remove((err) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    this.setState({ editingId: "" });
-                }
-            });
+            firebdb
+                .database()
+                .ref()
+                .child(`registers/${id}`)
+                .remove((err) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        this.setState({ editingId: "" });
+                    }
+                });
         }
     }
 
