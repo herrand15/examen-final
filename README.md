@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App]
 
 Link del hosting: https://nostalgic-spence-b93e9c.netlify.app/  
 
-NOTA: El hosting no funciona correctamente por alguna razon, favor correr en localHost  
+Para correr localmente  
 npm install  
 npm i firebase  
 npm start  
@@ -12,7 +12,7 @@ npm start
 Usuarios para log-in:  
 email: lolo@lolo.com  
 contrasena: aaaaaa  
-- - - - - - - - - - - - - - - - - - - - -   
+    
 email: examen@final.com  
 contrasena: 123456  
 ------------------------------------  
