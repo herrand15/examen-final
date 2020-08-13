@@ -35,7 +35,8 @@ class App extends React.Component {
                 className="col-12"
                 style={{ width: "100%", height: "100%", background: "white" }}
             >
-                {this.state.user ? <Home /> : <Login />}
+                <Home />
+                {/* {this.state.user ? <Home /> : <Login />} */}
             </div>
         );
     }
