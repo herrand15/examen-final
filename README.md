@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App]
 
 ## Proyecto Examen final Jorge Herrand  
 
-Link del hosting: https://nostalgic-spence-b93e9c.netlify.app/  
+Link del hosting: http://3b8179615ef4.ngrok.io  
 
 Para correr localmente  
 npm install  
