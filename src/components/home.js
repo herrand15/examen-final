@@ -15,7 +15,6 @@ class Home extends React.Component {
         this.editId = this.editId.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.logOut = this.logOut.bind(this);
-        //this.handleDeleteId = this.handleDeleteId.bind(this);
     }
 
     componentDidMount() {
@@ -104,9 +103,6 @@ class Home extends React.Component {
                             </div>
 
                             <Form
-                                // operation={this.operation}
-                                // registers={this.state.registers}
-                                // editingId={this.state.beingEdited}
                                 {...{
                                     operation: this.operation,
                                     registers: this.state.registers,
@@ -116,12 +112,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <div className="col-md-8">
-                        <button
-                            className="btn btn-secondary"
-                            onClick={this.logOut}
-                        >
-                            Sign Out
-                        </button>
+                        <button className="btn btn-secondary">Sign Out</button>
                         <table className="table table-borderless table-stripped">
                             <thead className="thead-light">
                                 <tr>
