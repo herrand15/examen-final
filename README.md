@@ -1,8 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App]
 
-## Available Scripts
+## Proyecto Examen final Jorge Herrand  
 
-In the project directory, you can run:
+Link del hosting: https://nostalgic-spence-b93e9c.netlify.app/  
+
+NOTA: El hosting no funciona correctamente por alguna razon, favor correr en localHost  
+
+Usuarios para log-in:  
+email: lolo@lolo.com  
+contrasena: aaaaaa  
+- - - - - - - - - - - - - - - - - - - - -   
+email: examen@final.com
+contrasena: 123456  
+
+------------------------------------  
+Al hacer click en un correo de la tabla te lleva a redactar un correo
+
 
 ### `yarn start`
 
