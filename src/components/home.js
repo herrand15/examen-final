@@ -112,7 +112,12 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <div className="col-md-8">
-                        <button className="btn btn-secondary">Sign Out</button>
+                        <button
+                            className="btn btn-secondary"
+                            onClick={this.logOut}
+                        >
+                            Sign Out
+                        </button>
                         <table className="table table-borderless table-stripped">
                             <thead className="thead-light">
                                 <tr>
