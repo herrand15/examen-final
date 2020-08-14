@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App]
 
 ## Proyecto Examen final Jorge Herrand  
 
-Link del hosting: http://3b8179615ef4.ngrok.io  
+Link del hosting: https://4effe6b96522.ngrok.io
 
 Para correr localmente  
 npm install  
